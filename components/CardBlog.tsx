@@ -20,6 +20,9 @@ const CardBlog = ({
     body,
     created_at,
 }: BlogType) => {
+    // slice 20 character in body
+    body = body.slice(0, 100) + '...'
+
   return (
     <div className='flex flex-col gap-3 bg-white p-2 rounded'>
                 <Image src={blog_image} width={50} height={50} alt='image' className='w-full h-[200px] rounded' />
