@@ -13,7 +13,14 @@ const Navbar = () => {
         </Link>
         <ul className='hidden h-full gap-12 lg:flex'>
             {NAV_LINKS.map((link) => (
-                <Link href={link.href} key={link.key} className='text-white font-robot-700 transition-all cursor-pointer'>{link.label}</Link>
+                <Link
+                href={link.href}
+                key={link.key}
+                className='text-white font-robot-700 transition-all cursor-pointer group relative'
+            >
+                {link.label}
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-transparent group-hover:bg-[#FF3B1D] transition-all duration-300 mt-2"></span>
+            </Link>
             ))}
         </ul>
 
