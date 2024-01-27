@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 *{
     margin: 0;
@@ -20,6 +20,31 @@
 
   .flexCenter {
     @apply flex items-center justify-center;
+  }
+
+  .font-robot-300{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+
+  .font-robot-400{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+
+  .font-robot-500{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+
+  .font-robot-700{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+
+  .font-robot-900{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
   }
 
 }
