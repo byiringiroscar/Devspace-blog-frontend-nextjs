@@ -18,10 +18,10 @@ const Navbar = () => {
         </ul>
 
         <div className='hidden lg:flex gap-1'>
-            <div  className='flex'>
-                <FaInstagram className='text-white text-2xl' />
-                <CiFacebook className='text-white text-2xl' />
-                <CiTwitter className='text-white text-2xl' />
+            <div  className='flex gap-2 items-center'>
+                <FaInstagram className='text-white text-[18px] cursor-pointer' />
+                <CiFacebook className='text-white text-[18px] cursor-pointer' />
+                <CiTwitter className='text-white text-[18px] cursor-pointer' />
             </div>
             <button className='
                 bg-[#FF3B1D] 
