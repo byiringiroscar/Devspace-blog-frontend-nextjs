@@ -22,7 +22,7 @@ const CardBlog = ({
 }: BlogType) => {
   return (
     <div className='flex flex-col gap-3 bg-white p-2 rounded'>
-                <Image src={blog_image} width={50} height={50} alt='image' className='w-full h-[200px] object-cover rounded' />
+                <Image src={blog_image} width={50} height={50} alt='image' className='w-full h-[200px] rounded' />
                 <h1 className='text-[#FF3B1D] font-dancing-700 text-2xl'>{title}</h1>
                 <p className='text-[#191919] font-robot-300 text-[14px]'>{body}</p>
                 <div className='flex justify-between items-center'>
