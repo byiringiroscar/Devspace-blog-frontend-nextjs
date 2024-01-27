@@ -22,6 +22,12 @@ const CardBlog = ({
 }: BlogType) => {
     // slice 20 character in body
     body = body.slice(0, 100) + '...'
+    // get date only
+    const formattedDate = new Date(created_at).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
 
   return (
     <div className='flex flex-col gap-3 bg-white p-2 rounded'>
@@ -29,7 +35,7 @@ const CardBlog = ({
                 <h1 className='text-[#FF3B1D] font-dancing-700 text-2xl'>{title}</h1>
                 <p className='text-[#191919] font-robot-300 text-[14px]'>{body}</p>
                 <div className='flex justify-between items-center'>
-                    <p className='text-[#191919] font-robot-300 text-[14px]'>{created_at}</p>
+                    <p className='text-[#191919] font-robot-300 text-[14px]'>{formattedDate}</p>
                     <button className='bg-[#FF3B1D] text-white rounded-md px-3 py-1 font-robot-500 text-[12px]'>Read</button>
                     </div>
             </div>
