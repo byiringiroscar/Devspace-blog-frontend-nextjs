@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 *{
     margin: 0;
@@ -45,6 +45,11 @@
   .font-robot-900{
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
+  }
+
+  .font-dancing-700{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
   }
 
 }

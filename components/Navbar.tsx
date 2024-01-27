@@ -8,12 +8,12 @@ import { CiTwitter } from "react-icons/ci";
 const Navbar = () => {
   return (
     <nav className='flex justify-between padding-container relative bg-[#191919] shadow py-5'>
-        <Link href='/' className='font-bold text-[#FF3B1D]'>
-            Dev <span>Space</span>
+        <Link href='/' className=''>
+            <span className='text-[#FF3B1D] font-dancing-700 text-2xl'>Dev</span> <span className='font-robot-500 text-white'>Space</span>
         </Link>
         <ul className='hidden h-full gap-12 lg:flex'>
             {NAV_LINKS.map((link) => (
-                <Link href={link.href} key={link.key} className='text-white transition-all cursor-pointer'>{link.label}</Link>
+                <Link href={link.href} key={link.key} className='text-white font-robot-700 transition-all cursor-pointer'>{link.label}</Link>
             ))}
         </ul>
 
