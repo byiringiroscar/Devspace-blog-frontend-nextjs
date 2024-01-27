@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #191919;
+}
+
 @layer utilities {
   .max-container {
     @apply mx-auto max-w-[1440px];
