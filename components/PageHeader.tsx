@@ -25,7 +25,34 @@ const PageHeader = () => {
                     </p>
                 </div>
                 <div className="grid gap-2">
+                    <form className='
+                    flex
+                    flex-col
+                    gap-4
+                    
+                    '>
+                    <input
+                    type="text"
+                    name='title'
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 focus:outline-none"
+                    placeholder="Blog title"
+                    />
+                    <textarea
+                    name='body'
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 focus:outline-none"
+                    placeholder="Blog description"
+                    />
+                    <input
+                    type="file"
+                    name='blog_image'
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 focus:outline-none"
+                    placeholder="Blog image"
+                    />
 
+                    <div className="flex justify-end">
+                    <Button variant="outline">Add blog</Button>
+                    </div>
+                    </form>
                 </div>
                 </div>
             </PopoverContent>
