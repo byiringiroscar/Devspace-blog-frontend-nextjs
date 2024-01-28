@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/popover"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { LineWave } from 'react-loader-spinner'
 
 const fetcher = async() => {
   const res = await fetch(`http://127.0.0.1:8000/blog/`)
@@ -30,6 +31,7 @@ const addBlog = async (dataBody: any) => {
 
 
 const PageHeader = () => {
+  const [ loading, setLoading ] = useState(false)
   const [updateError, setupdateError] = useState({
     title: '',
     body: '',
@@ -66,30 +68,27 @@ const handleImageChange = (e: any) => {
 
   const addNewBlog = async (e: any) => {
     e.preventDefault();
+    setLoading(true)
     let form_data = new FormData();
     form_data.append('blog_image', newData.blog_image);
     form_data.append('title', newData.title);
     form_data.append('body', newData.body);
-    // const newData = {
-    //   title: newData.title,
-    //   body: newData.body,
-    //   blog_image: newData.blog_image,
-    // };
-
-    
 
     try{
       const updatedData = await addBlog(form_data);
       if(updatedData.id){
+        setLoading(false)
         toast('Data Updated', {
             hideProgressBar: true,
             autoClose: 2000,
             type: 'success'
           });
           mutate();
+          setnewData({ title: '', body: '', blog_image: '' });
           e.target.reset()
 
       }else{
+        setLoading(false)
         const error = updatedData
             setupdateError({
                 title: error.title ? error.title[0] : '',
@@ -106,6 +105,7 @@ const handleImageChange = (e: any) => {
 
     }
     catch (err) {
+      setLoading(false)
       toast('Data Failed to Update', {
         hideProgressBar: true,
         autoClose: 2000,
@@ -133,7 +133,6 @@ const handleImageChange = (e: any) => {
                   <div className="grid gap-2">
                       <form 
                       onSubmit={addNewBlog}
-                      // encType="multipart/form-data"
                       className='
                       flex
                       flex-col
@@ -174,7 +173,18 @@ const handleImageChange = (e: any) => {
                                       </div>
   
                       <div className="flex justify-end">
-                      <Button variant="outline">Add blog</Button>
+                      <Button variant="outline" type='submit'>{loading ? (<LineWave
+  visible={true}
+  height="40"
+  width="40"
+  color="#4fa94d"
+  ariaLabel="line-wave-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  firstLineColor=""
+  middleLineColor=""
+  lastLineColor=""
+  />): 'Add Data'}</Button>
                       </div>
                       </form>
                   </div>
