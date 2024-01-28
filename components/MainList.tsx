@@ -37,7 +37,7 @@ const MainList = () => {
           <div className='max-container padding-container'>
             <div className='grid grid-cols-1 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-4 lg:pt-8'>
               <div className='error-card'>
-                <h3 className='text-center'>There was an error fetching the data</h3>
+                <h3 className='text-center'>There was an error while fetching the data</h3>
               </div>
             </div>
           </div>
