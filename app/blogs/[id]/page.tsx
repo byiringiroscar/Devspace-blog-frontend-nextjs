@@ -17,7 +17,12 @@ const BlogDetail = () => {
     const pathname = usePathname();
     const router = useRouter();
     const id = pathname.split('/').slice(-1)[0];
-    const { data, error, mutate, isLoading }  = useSWR(id, fetcher)
+    const { data, error, isLoading }  = useSWR(id, fetcher)
+    const formattedDate = new Date(data?.created_at).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
   return (
     <>
       <div className='w-full pt-10 pb-12 bg-[#191919] flex flex-col gap-3 items-center'>
@@ -39,6 +44,10 @@ const BlogDetail = () => {
                 <p className='text-white font-robot-300 text-[14px]
                 '>{data.body}</p>
                 <Image src={data.blog_image} alt="image" width={200} height={0} style={{ width: '100%', height: '300px' }} className='w-full h-[200px] lg:h-[400px] object-cover rounded' />
+                <div className='flex gap-2'>
+                    <p className='text-white font-robot-300 text-[14px]'>Published on</p>
+                    <p className='text-[#FF3B1D] font-robot-300 text-[14px]'>{formattedDate}</p>
+                </div>
                   
             </div>
         )}
