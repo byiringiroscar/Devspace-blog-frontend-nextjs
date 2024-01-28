@@ -20,9 +20,6 @@ const fetcher = async() => {
 const addBlog = async (dataBody: any) => {
   const res = await fetch(`http://127.0.0.1:8000/blog/`, {
     method: 'POST',
-    // headers: {
-    //   'content-type': 'application/json',
-    // },
     body: dataBody,
   });
   const addData = await res.json();
