@@ -50,7 +50,8 @@ const MainList = () => {
                         <div key={index} className='p-6 bg-gray-300 rounded-md'>
                         <Skeleton height={150} />
                         <Skeleton height={20} width={120} />
-                        <Skeleton height={15} width={80} />
+                        <Skeleton height={15} width={100} />
+                        <Skeleton height={5} width={80} />
                         </div>
                     ))}
                     </div>
@@ -70,7 +71,8 @@ const MainList = () => {
                         <div key={index} className='p-6 bg-gray-300 rounded-md'>
                         <Skeleton height={150} />
                         <Skeleton height={20} width={120} />
-                        <Skeleton height={15} width={80} />
+                        <Skeleton height={15} width={100} />
+                        <Skeleton height={5} width={80} />
                         </div>
                     ))}
               </>

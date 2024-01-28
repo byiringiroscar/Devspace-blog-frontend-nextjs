@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Link from 'next/link'
 import { NAV_LINKS } from '@/constants'
 import { FaInstagram } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";
 import { CiTwitter } from "react-icons/ci";
+import Image from 'next/image';
+import menu from '../public/menu.svg'
+import MobileBody from './MobileBody';
+import { MdOutlineMenu } from "react-icons/md";
 
 const Navbar = () => {
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+    const handleToggleMobileNav = () => {
+        setIsMobileNavOpen(!isMobileNavOpen);
+    };
   return (
     <nav className='flex justify-between padding-container relative bg-[#191919] shadow py-5'>
         <Link href='/' className=''>
@@ -44,6 +52,10 @@ const Navbar = () => {
             '>Let&apos;s talk</button>
 
         </div>
+
+        <MdOutlineMenu onClick={handleToggleMobileNav} className='text-white text-[30px] lg:hidden cursor-pointer' />
+
+        <MobileBody isMobileNavOpen={isMobileNavOpen} onToggleNav={handleToggleMobileNav} />
 
     </nav>
   )
