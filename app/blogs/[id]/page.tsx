@@ -38,7 +38,7 @@ const BlogDetail = () => {
                 <h1 className='text-[#FF3B1D] font-dancing-700 text-2xl'>{data.title}</h1>
                 <p className='text-white font-robot-300 text-[14px]
                 '>{data.body}</p>
-                <Image src={data.blog_image} alt="image" width={100} height={100} className='w-full h-[200px] lg:h-[400px] object-cover rounded' />
+                <Image src={data.blog_image} alt="image" width={200} height={0} style={{ width: '100%', height: '300px' }} className='w-full h-[200px] lg:h-[400px] object-cover rounded' />
                   
             </div>
         )}
