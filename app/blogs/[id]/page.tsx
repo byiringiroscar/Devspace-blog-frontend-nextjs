@@ -8,7 +8,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const fetcher = async(id: any) => {
-    const res = await fetch(`http://127.0.0.1:8000/blog/${id}`)
+    const res = await fetch(`https://devspace-60v7.onrender.com/blog/${id}`)
     const data = await res.json()
     return data
 }

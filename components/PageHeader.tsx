@@ -12,13 +12,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { LineWave } from 'react-loader-spinner'
 
 const fetcher = async() => {
-  const res = await fetch(`http://127.0.0.1:8000/blog/`)
+  const res = await fetch(`https://devspace-60v7.onrender.com/blog/`)
   const data = await res.json()
   return data
 }
 
 const addBlog = async (dataBody: any) => {
-  const res = await fetch(`http://127.0.0.1:8000/blog/`, {
+  const res = await fetch(`https://devspace-60v7.onrender.com/blog/`, {
     method: 'POST',
     body: dataBody,
   });

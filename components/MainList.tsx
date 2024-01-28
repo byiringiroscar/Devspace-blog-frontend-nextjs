@@ -11,7 +11,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const MainList = () => {
   const { ref, inView, entry } = useInView();
   const fetcher = async({ pageParam }: { pageParam: number }) => {
-    const res = await fetch(`http://127.0.0.1:8000/blog?page=${pageParam}`)
+    const res = await fetch(`https://devspace-60v7.onrender.com/blog?page=${pageParam}`)
     return res.json()
   }
   const { data, status, error, fetchNextPage, isFetchingNextPage, hasNextPage } = useInfiniteQuery({
@@ -46,7 +46,6 @@ const MainList = () => {
         return (
             <div className='max-container padding-container'>
                     <div className='grid grid-cols-1 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-4 lg:pt-8'>
-                    {/* Render loading skeleton */}
                     {[...Array(12)].map((_, index) => (
                         <div key={index} className='p-6 bg-gray-300 rounded-md'>
                         <Skeleton height={150} />
