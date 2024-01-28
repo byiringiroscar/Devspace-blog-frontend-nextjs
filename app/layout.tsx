@@ -1,11 +1,14 @@
 'use client'
 import type { Metadata } from "next";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+
+const queryClient = new QueryClient()
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +26,12 @@ export default function RootLayout({
     <html lang="en">
       <body className='flex flex-col min-h-screen'>
         <Navbar />
-        <main className='relative overflow-hidden flex-grow'>
-                {children}
-                <ToastContainer />
-          </main>
+        <QueryClientProvider client={queryClient}>
+          <main className='relative overflow-hidden flex-grow'>
+                  {children}
+                  <ToastContainer />
+            </main>
+        </QueryClientProvider>
           <Footer />
         </body>
     </html>
