@@ -1,6 +1,23 @@
+'use client'
 import React from 'react'
+import { notFound } from 'next/navigation'
+import useSWR from 'swr'
+import Image from "next/image"
+import { usePathname, useRouter } from "next/navigation";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
+
+const fetcher = async(id: any) => {
+    const res = await fetch(`http://127.0.0.1:8000/blog/${id}`)
+    const data = await res.json()
+    return data
+}
 
 const BlogDetail = () => {
+    const pathname = usePathname();
+    const router = useRouter();
+    const id = pathname.split('/').slice(-1)[0];
+    const { data, error, mutate, isLoading }  = useSWR(id, fetcher)
   return (
     <>
       <div className='w-full pt-10 pb-12 bg-[#191919] flex flex-col gap-3 items-center'>
@@ -8,13 +25,23 @@ const BlogDetail = () => {
           <p className='text-white font-robot-300 text-[14px]'>We build amazing blogs</p>
       </div>
       <div className='max-container padding-container'>
+        {isLoading ? ( 
+            <div className='p-4 bg-gray-300 rounded-md'>
+                <Skeleton height={15} width={100} />
+                <Skeleton height={50}  />
+                <Skeleton height={300} />
+            </div>
+        ): error ? (
+            notFound()
+        ): (
             <div className='flex flex-col gap-3'>
-                <h1 className='text-[#FF3B1D] font-dancing-700 text-2xl'>Blog Title</h1>
+                <h1 className='text-[#FF3B1D] font-dancing-700 text-2xl'>{data.title}</h1>
                 <p className='text-white font-robot-300 text-[14px]
-                '>Lorem ipsum dolar sit amet, consectetur adipisicing elit. Necessitatibus, voluptas.</p>
-                <img src="https://images.pexels.com/photos/3768164/pexels-photo-3768164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="image" className='w-full h-[200px] lg:h-[400px] object-cover rounded' />
+                '>{data.body}</p>
+                <Image src={data.blog_image} alt="image" width={100} height={100} className='w-full h-[200px] lg:h-[400px] object-cover rounded' />
                   
             </div>
+        )}
       </div>
     </>
   )
